@@ -1,0 +1,26 @@
+
+
+Hauptziel
+Im zu erstellenden Spiel, welches von der Hälfte der Spieler fertiggespielt wird, mit einer abgeschlossenen Geschichte übernimmt ein 
+Einzelspieler die Rolle eines Protagonisten und löst unterschiedliche Puzzles.
+
+Teilziele:
+1. Die Steuerung des Spiels ist sehr einfach und wird vom Benutzer ohne Handbuch verstanden.
+2. Es ist möglich, das Spiel zwischenzuspeichern und zu einem späteren Zeitpunkt wieder aufzunehmen.
+3. 
+
+
+
+
+
+
+
+
+Das zu erstellende Einzelspieler Adventure-Game besteht aus einer statischen Geschichte mit mehr als zehn Leveln, die jeweils innerhalb von 15 Minuten gelöst werden können.
+
+
+Das zu erstellende Einzelspieler Adventure-Game beschäftigt den Spieler mit seiner Geschichte und verschiedensten Rätseln mindestens zwei Stunden.
+
+
+Mit einer grösstenteils einheitlichen Grafik, mehr als zehn Levels und einer klaren Geschichte beschäftigt das Spiel den erstmaligen Spieler mindestens eine Stunde.
+

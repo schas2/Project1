@@ -1,13 +1,36 @@
 
 
 Hauptziel
-Im zu erstellenden Spiel, welches von der Hälfte der Spieler fertiggespielt wird, mit einer abgeschlossenen Geschichte übernimmt ein 
+---------
+Im zu erstellenden Spiel mit einer abgeschlossenen Geschichte übernimmt ein 
 Einzelspieler die Rolle eines Protagonisten und löst unterschiedliche Puzzles.
 
-Teilziele:
-1. Die Steuerung des Spiels ist sehr einfach und wird vom Benutzer ohne Handbuch verstanden.
-2. Es ist möglich, das Spiel zwischenzuspeichern und zu einem späteren Zeitpunkt wieder aufzunehmen.
-3. 
+Teilziele
+---------
+Q1. Die Steuerung des Spiels ist sehr einfach und wird vom Benutzer ohne Handbuch verstanden.
+F2. Es ist möglich, das Spiel zwischenzuspeichern und zu einem späteren Zeitpunkt wieder aufzunehmen.
+U3. Das Spiel ist unterhaltsam genug, sodass es von der mindestens der Hälfte der Spieler auch zuende gespielt wird.
+Q4. Neuzig Prozent der Spieler können das Spiel durchspielen, ohne dass das Programm abstürzt oder ungewollt neu gestartet werden muss.
+U5. Das Spiel ist andersartig genug, damit es der Mehrzahl der Spieler nicht als Abkupferung erscheint.
+F6. Die Applikation wird für Windows entwickelt und getestet.
+Q7. Auch Personen ohne Videospielerfahrung sollen in der Lage sein, das Spiel selbstständig zu starten und mindestens ein Level zu bestehen.
+F8. Ein neues Level muss innerhalb von einem Personentag in das bestehende Spiel eingefügt werden können.
+(Das Spiel wird im ersten Monat nach Veröffentlichung von mindestens zehn Personen gespielt.)
+
+Akteure
+-------
+Spieler, Projektteam, Projektauftraggeber
+
+Stakeholders
+------------
+Projektteam (Entwicklung, Tester), Projektauftraggeber, Spieler
+
+Kontext
+-------
+Unity-FW
+Hardware
+Geschäftsprozess "Spiel-Update"
+Webauftritt des Spiels
 
 
 
@@ -15,6 +38,11 @@ Teilziele:
 
 
 
+
+
+
+Archiv
+------
 
 Das zu erstellende Einzelspieler Adventure-Game besteht aus einer statischen Geschichte mit mehr als zehn Leveln, die jeweils innerhalb von 15 Minuten gelöst werden können.
 

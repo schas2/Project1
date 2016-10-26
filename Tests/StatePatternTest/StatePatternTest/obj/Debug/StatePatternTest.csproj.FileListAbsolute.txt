@@ -1,1 +1,0 @@
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\bin\Debug\StatePatternTest.exe.config

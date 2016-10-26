@@ -1,6 +1,0 @@
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\obj\Debug\StatePatternTest1.csprojResolveAssemblyReference.cache
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\bin\Debug\StatePatternTest.exe.config
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\bin\Debug\StatePatternTest.exe
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\bin\Debug\StatePatternTest.pdb
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\obj\Debug\StatePatternTest.exe
-Z:\SourcecodeExamples\StatePatternTest\StatePatternTest\obj\Debug\StatePatternTest.pdb

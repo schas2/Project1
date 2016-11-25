@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class InteractionHelper : MonoBehaviour {
-	public Canvas container;
+	public GameObject container;
 	public Text textField;
 
 	private bool alreadyActive = false;
@@ -11,10 +11,10 @@ public class InteractionHelper : MonoBehaviour {
 	public IEnumerator setText(string text) {
 		if (!alreadyActive) {
 			alreadyActive = true;
-			container.gameObject.SetActive (true);
+			container.SetActive (true);
 			textField.text = text;
 			yield return new WaitForSeconds (3);
-			container.gameObject.SetActive (false);
+			container.SetActive (false);
 			alreadyActive = false;
 		}
 	}

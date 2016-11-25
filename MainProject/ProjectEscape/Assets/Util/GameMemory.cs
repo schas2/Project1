@@ -2,14 +2,10 @@
 using System.Collections;
 
 public class GameMemory : MonoBehaviour {
+	public static Room2State room2State = new StartedRoom2();
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		DontDestroyOnLoad(this);
 	}
 }

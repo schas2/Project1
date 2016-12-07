@@ -8,7 +8,7 @@ public class PlantLeftScript : MonoBehaviour {
 	void OnMouseDown(){
 		float distance = Vector3.Distance (player.transform.position, this.transform.position);
 		if (distance < 2.5) {
-			dialogHolder.SendMessage ("setText", "Menschen \"rauchen\" solches Zeug, teils aus medizinischen Gründen. Vielleicht würde das diesem alten Exemplar gut tun.");
+			dialogHolder.SendMessage ("setText", "Menschen \"rauchen\" solches Zeug, teils aus medizinischen Gründen. Vielleicht würde das diesem alten Cyborg auchs gut tun.");
 		} else {
 			dialogHolder.SendMessage ("setText", "Sieht aus wie eine Pflanze.");
 		}

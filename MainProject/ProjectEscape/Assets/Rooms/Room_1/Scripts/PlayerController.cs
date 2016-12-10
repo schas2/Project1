@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Fire1")) {
 			dialogHolder.SetActive(false);
 
-			if (Physics.Raycast(ray, out hit, 100)) {
+			if (Physics.Raycast(ray, out hit, 50)) {
 				if (hit.collider.tag == "Door") {
 					GameObject go = hit.collider.gameObject;
 					DoorController controller = (DoorController)go.GetComponent(typeof(DoorController));

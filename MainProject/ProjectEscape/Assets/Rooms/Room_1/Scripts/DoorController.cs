@@ -2,18 +2,32 @@
 
 public class DoorController : MonoBehaviour
 {
-    private bool isClosed;
+	private bool isClosed;
+	private bool isMoving;
 
-    void Awake()
-    {
-        isClosed = true;
-    }
+	private int finalPosition;
 
-    public void OperateDoor()
-    {
-        if (isClosed)
-        {
-            gameObject.SetActive(false);
-        }
-    }
+	void Awake()
+	{
+		isClosed = true;
+		isMoving = false;
+
+		finalPosition = 0;
+	}
+
+	void Update()
+	{
+		if (isMoving && finalPosition < 40) {
+			transform.Translate(Vector3.right * Time.deltaTime);
+			finalPosition++;
+		}
+	}
+
+	public void OperateDoor()
+	{
+		if (isClosed && !isMoving) {
+			isMoving = true;
+			isClosed = false;
+		}
+	}
 }

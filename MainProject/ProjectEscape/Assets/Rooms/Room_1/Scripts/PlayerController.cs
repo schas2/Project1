@@ -14,10 +14,14 @@ public class PlayerController : MonoBehaviour
 	private bool gameRunning;
 
 	private NavMeshAgent navMeshAgent;
+	private Animator animator;
+	private int buffer;
 
 	void Awake()
 	{
 		navMeshAgent = GetComponent<NavMeshAgent>();
+		animator = GetComponent<Animator>();
+
 		mainCamera.enabled = true;
 		room1Camera.enabled = false;
 		room2Camera.enabled = false;
@@ -58,6 +62,13 @@ public class PlayerController : MonoBehaviour
 				DeactivateCameras();
 				mainCamera.enabled = true;
 				dialogHolder.SetActive(false);
+			}
+		}
+
+		if (navMeshAgent.velocity.Equals(new Vector3(0, 0, 0))) {
+			buffer++;
+			if (buffer > 3) {
+				animator.SetBool("walking", false);
 			}
 		}
 	}
@@ -104,6 +115,9 @@ public class PlayerController : MonoBehaviour
 					room1Camera.enabled = true;
 					playerNotification.text = "SecCam Room 101.\nPress ESC to return.";
 				} else {
+					animator.SetBool("walking", true);
+					buffer = 0;
+
 					navMeshAgent.destination = hit.point;
 					navMeshAgent.Resume();
 				}

@@ -2,5 +2,6 @@
 using System.Collections;
 
 [System.Serializable]
-public abstract class Room2State : BaseState {
+public abstract class Room1State : BaseState {
+
 }

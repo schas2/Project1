@@ -2,13 +2,13 @@
 using System.Collections;
 
 [System.Serializable]
-public class StartedRoom2 : Room2State {
+public class Room0State : BaseState {
 
 	public override void arrive () {
-		Debug.Log ("arrive: StartedRoom2");
+		Debug.Log ("arrive: Room0State");
 	}
 
 	public override void leave () {
-		Debug.Log ("leave: StartedRoom2");
+		Debug.Log ("leave: Room0State");
 	}
 }

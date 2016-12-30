@@ -23,7 +23,7 @@ public class CodeScript : MonoBehaviour, InputReceiver {
 
 	public void receivedInput(string input) {
 		Debug.Log (input);
-		if (input == "752") {
+		if (input == "172") {
 			Debug.Log ("yeah!");
 		} else {
 			Debug.Log ("Nope");

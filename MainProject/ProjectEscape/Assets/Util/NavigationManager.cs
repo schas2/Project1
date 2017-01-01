@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class NavigationManager : MonoBehaviour {
 
 	public void goMainScene(){
-		GameMemory.getCurrentRoomState ().leave ();
-		GameMemory.setCurrentSceneId (0);
-		GameMemory.getCurrentRoomState ().arrive ();
+		Debug.Log("blabla");
+		GameMemory.getCurrentRoomState().leave ();
+		GameMemory.setCurrentSceneId(0);
+		GameMemory.getCurrentRoomState().arrive ();
 		SceneManager.LoadScene(0);
 	}
 

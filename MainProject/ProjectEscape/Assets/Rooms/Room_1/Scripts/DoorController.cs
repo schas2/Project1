@@ -17,7 +17,7 @@ public class DoorController : MonoBehaviour
 
 	void Update()
 	{
-		if (isMoving && finalPosition < 40) {
+		if (isMoving && finalPosition < 120) {
 			transform.Translate(Vector3.right * Time.deltaTime);
 			finalPosition++;
 		}

@@ -32,6 +32,13 @@ public class NavigationManager : MonoBehaviour {
 		SceneManager.LoadScene(3);
 	}
 
+	public void goOutro(){
+		GameMemory.getCurrentRoomState().leave();
+		GameMemory.setCurrentSceneId(4);
+		GameMemory.getCurrentRoomState().arrive();
+		SceneManager.LoadScene(4);
+	}
+
 	public void saveGame() {
 		GameMemory.save ();
 	}

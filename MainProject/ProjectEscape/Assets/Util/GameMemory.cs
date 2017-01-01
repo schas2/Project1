@@ -35,10 +35,11 @@ public class GameMemory : MonoBehaviour {
 			fs.Close ();
 			gameState.print ();
 		} else {
-			gameState.roomStates.Add (0, new Room0State());
-			gameState.roomStates.Add (1, new StartedRoom1 ());
-			gameState.roomStates.Add (2, new StartedRoom2 ());
-			gameState.roomStates.Add (3, new StartedRoom3 ());
+			gameState.roomStates.Add(0, new Room0State());
+			gameState.roomStates.Add(1, new StartedRoom1());
+			gameState.roomStates.Add(2, new StartedRoom2());
+			gameState.roomStates.Add(3, new StartedRoom3());
+			gameState.roomStates.Add(4, new StartedOutro());
 		}
 	}
 

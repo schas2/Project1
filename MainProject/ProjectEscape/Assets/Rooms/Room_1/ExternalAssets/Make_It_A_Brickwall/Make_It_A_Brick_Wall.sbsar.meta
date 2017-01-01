@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cb1ded7b0fd6e74fbd141488f5c3a59
-timeCreated: 1479291934
+timeCreated: 1483291283
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -10,9 +10,9 @@ SubstanceImporter:
     prototypeName: Make_It_A_Brick_Wall
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: 
+    shaderKeywords: _EMISSION _NORMALMAP _PARALLAXMAP
     renderQueue: -1
-    lightmapFlags: 5
+    lightmapFlags: 1
     inputs:
     - name: $normalformat
       value:
@@ -360,7 +360,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1, y: 1}
+      scale: {x: 2, y: 1}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
@@ -395,13 +395,13 @@ SubstanceImporter:
           name: _EmissionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 2, y: 1}
           offset: {x: 0, y: 0}
       - first:
           name: _MainTex
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 2, y: 1}
           offset: {x: 0, y: 0}
       - first:
           name: _MetallicGlossMap

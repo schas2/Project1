@@ -40,7 +40,6 @@ public class MarkerHandler : MonoBehaviour
 	{ 
 		defaultSprite = GetComponent<Image> ().sprite;
 		GetComponent<Image> ().sprite = onHoverSprite;
-		Debug.Log (levelId);
 	}
 
 	public void OnPointerExit(PointerEventData eventData)

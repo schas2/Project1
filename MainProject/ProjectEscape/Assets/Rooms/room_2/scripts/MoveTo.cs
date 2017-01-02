@@ -9,7 +9,13 @@ public class MoveTo : MonoBehaviour {
 	void Start()
 	{
 		navMeshAgent = GetComponent<NavMeshAgent>();
-		anim = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();		
+
+		// Aktualisiere Status (nur, wenn das Level nicht schon abgeschlossen ist)
+		if (!(GameMemory.getRoomState (2) is LevelCompleted)) {
+			GameMemory.setRoom2State (new StartedRoom2 ());
+			GameMemory.save ();
+		}
 	}
 
 	void Update()

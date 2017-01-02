@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class PlayerControllerTutorial : MonoBehaviour {
-	NavMeshAgent navMeshAgent;
-	private Animator anim;
-	private int buffer = 0;
+//	NavMeshAgent navMeshAgent;
+	//private Animator anim;
+	//private int buffer = 0;
 
 	void Start()
 	{
-		navMeshAgent = GetComponent<NavMeshAgent>();
-		anim = GetComponent<Animator> ();
+		//navMeshAgent = GetComponent<NavMeshAgent>();
+		//anim = GetComponent<Animator> ();
 	}
 
 	void Update()

@@ -25,6 +25,11 @@ public class CodeScript : MonoBehaviour, InputReceiver {
 		Debug.Log (input);
 		if (input == "172") {
 			Debug.Log ("yeah!");
+			// Schliesse Level 3 ab
+			GameMemory.setRoom3State (new FinishedRoom3 ());
+			// Ermögliche, dass das Outro spielbar wird
+			GameMemory.setOutroState (new NotStartedOutro ());
+			GameMemory.save ();
 		} else {
 			Debug.Log ("Nope");
 		}

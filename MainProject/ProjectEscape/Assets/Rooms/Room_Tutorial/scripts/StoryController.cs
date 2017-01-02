@@ -15,12 +15,15 @@ public class StoryController : MonoBehaviour {
 		"das Ende..."
 	};
 	int i = 0;
+	bool skipText = false;
 
 
 	void Start () {
-		// Aktualisiere Status!
-		GameMemory.setTutorialState (new StartedTutorial ());
-		GameMemory.save ();
+		// Aktualisiere Status (nur, wenn das Level nicht schon abgeschlossen ist)
+		if (!(GameMemory.getRoomState (5) is LevelCompleted)) {
+			GameMemory.setTutorialState (new StartedTutorial ());
+			GameMemory.save ();
+		}
 
 		Camera.main.enabled = false;
 		rotateCamera.enabled = true;
@@ -28,10 +31,16 @@ public class StoryController : MonoBehaviour {
 
 	void Update() {
 
-		if (Time.time - seconds > 5) {
-			if (i > 3) {
+		if (Time.time - seconds > 5 && !skipText) {
+			if (i >= 3) {
+				// Schliesse Tutorial ab
 				GameMemory.setTutorialState (new FinishedTutorial ());
+				// Ermögliche, dass Level 1 spielbar wird
+				GameMemory.setRoom1State (new NotStartedRoom1 ());
 				GameMemory.save ();
+
+				skipText = true;
+				return;
 			}
 			seconds = Time.time;
 			Debug.Log (seconds);

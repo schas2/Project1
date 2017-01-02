@@ -80,22 +80,27 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	public static void setRoom1State(Room1State state) {
+		Debug.Log ("setRoom1State to " + state);
 		gameState.roomStates [1] = state;
 	}
 
 	public static void setRoom2State(Room2State state) {
+		Debug.Log ("setRoom2State to " + state);
 		gameState.roomStates [2] = state;
 	}
 
 	public static void setRoom3State(Room3State state) {
+		Debug.Log ("setRoom3State to " + state);
 		gameState.roomStates [3] = state;
 	}
 
 	public static void setOutroState(OutroState state) {
+		Debug.Log ("setOutroState to " + state);
 		gameState.roomStates [4] = state;
 	}
 
 	public static void setTutorialState(TutorialState state) {
+		Debug.Log ("setTutorialState to " + state);
 		gameState.roomStates [5] = state;
 	}
 }

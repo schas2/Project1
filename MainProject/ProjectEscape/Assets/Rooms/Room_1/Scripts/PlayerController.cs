@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
 		playerNotification.text = "";
 		dialogHolder.SetActive(false);
 		gameRunning = true;
+
+		// Aktualisiere Status (nur, wenn das Level nicht schon abgeschlossen ist)
+		if (!(GameMemory.getRoomState (1) is LevelCompleted)) {
+			GameMemory.setRoom1State (new StartedRoom1 ());
+			GameMemory.save ();
+		}
 	}
 
 	void Start()
@@ -78,6 +84,13 @@ public class PlayerController : MonoBehaviour
 		if (other.gameObject.CompareTag("LevelEnd")) {
 			dialogHolder.SetActive(true);
 			playerNotification.text = "Ja, ich habe es geschafft!";
+
+			// Schliesse Level ab
+			GameMemory.setRoom1State (new FinishedRoom1 ());
+			// Ermögliche, dass Level 2 spielbar wird
+			GameMemory.setRoom2State (new NotStartedRoom2 ());
+			GameMemory.save ();
+
 			gameRunning = false;
 		} else if (other.gameObject.CompareTag("Detected")) {
 			dialogHolder.SetActive(true);

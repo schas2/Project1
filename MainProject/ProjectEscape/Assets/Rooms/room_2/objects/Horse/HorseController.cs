@@ -9,7 +9,6 @@ public class HorseController : MonoBehaviour {
 	public GameObject dialogHolder;
 
 	void OnMouseDown(){
-		Debug.Log ("dfa");
 		dialogHolder.SendMessage ("setText", "Ein Pferd? Sollte ich ihm folgen oder nicht?");
 	} 
 

@@ -8,6 +8,7 @@ public class GameMemory : MonoBehaviour {
 	private static SerializableGameState gameState = new SerializableGameState();
 	private static int currentSceneId = 0;
 	private static string savedGamePath;
+	public static int uiIndex = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -43,10 +44,11 @@ public class GameMemory : MonoBehaviour {
 		Debug.Log ("Create new Game at: " + Application.persistentDataPath);
 		gameState.roomStates.Clear ();
 		gameState.roomStates.Add(0, new Room0State());
-		gameState.roomStates.Add(1, new StartedRoom1());
-		gameState.roomStates.Add(2, new StartedRoom2());
-		gameState.roomStates.Add(3, new StartedRoom3());
-		gameState.roomStates.Add(4, new StartedOutro());
+		gameState.roomStates.Add(1, new NotAllowedRoom1());
+		gameState.roomStates.Add(2, new NotAllowedRoom2());
+		gameState.roomStates.Add(3, new NotAllowedRoom3());
+		gameState.roomStates.Add(4, new NotAllowedOutro());
+		gameState.roomStates.Add(5, new NotStartedTutorial());
 	}
 
 	public static int getCurrentSceneId() {
@@ -87,5 +89,13 @@ public class GameMemory : MonoBehaviour {
 
 	public static void setRoom3State(Room3State state) {
 		gameState.roomStates [3] = state;
+	}
+
+	public static void setOutroState(OutroState state) {
+		gameState.roomStates [4] = state;
+	}
+
+	public static void setTutorialState(TutorialState state) {
+		gameState.roomStates [5] = state;
 	}
 }

@@ -9,8 +9,8 @@ public class MarkerHandler : MonoBehaviour
 								, IPointerClickHandler
 {
 	public NavigationManager navigationManager;
-	public Sprite defaultSprite;
 	public Sprite onHoverSprite;
+	private Sprite defaultSprite;
 	public int levelId;
 
 	public void Start ()
@@ -20,8 +20,8 @@ public class MarkerHandler : MonoBehaviour
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (levelId == 0) {
-			// TODO
+		if (levelId == 5) {
+			navigationManager.goTutorial ();
 		} else if (levelId == 1) {
 			navigationManager.goLevel1 ();
 		} else if (levelId == 2) {
@@ -38,6 +38,7 @@ public class MarkerHandler : MonoBehaviour
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{ 
+		defaultSprite = GetComponent<Image> ().sprite;
 		GetComponent<Image> ().sprite = onHoverSprite;
 		Debug.Log (levelId);
 	}

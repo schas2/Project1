@@ -2,13 +2,13 @@
 using System.Collections;
 
 [System.Serializable]
-public class FinishedOutro : OutroState, LevelCompleted
+public class FinishedTutorial : TutorialState, LevelCompleted
 {
 	public override void arrive() {
-		Debug.Log("arrive: FinishedOutro");
+		Debug.Log("arrive: FinishedTutorial");
 	}
 
 	public override void leave() {
-		Debug.Log("leave: FinishedOutro");
+		Debug.Log("leave: FinishedTutorial");
 	}
 }

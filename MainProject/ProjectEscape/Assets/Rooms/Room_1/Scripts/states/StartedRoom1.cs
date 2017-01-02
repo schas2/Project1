@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class StartedRoom1 : Room1State {
+public class StartedRoom1 : Room1State, LevelPlayable {
 
 	public override void arrive () {
 		Debug.Log ("arrive: StartedRoom1");

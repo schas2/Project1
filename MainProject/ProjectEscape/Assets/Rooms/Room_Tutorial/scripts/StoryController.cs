@@ -9,22 +9,30 @@ public class StoryController : MonoBehaviour {
 	public Camera rotateCamera;
 	private float seconds = 0;
 	// Texte für dialog als array
-	List<string> textStory = new List<string>();
+	String[] textStory = {
+		"Dies ist der Anfang.",
+		"Die Mitte",
+		"das Ende..."
+	};
 	int i = 0;
 
 
 	void Start () {
+		// Aktualisiere Status!
+		GameMemory.setTutorialState (new StartedTutorial ());
+		GameMemory.save ();
+
 		Camera.main.enabled = false;
 		rotateCamera.enabled = true;
-
-		textStory.Add("Dies ist der Anfang.");
-		textStory.Add("Die Mitte");
-		textStory.Add("das Ende...");
 	}
 
 	void Update() {
 
 		if (Time.time - seconds > 5) {
+			if (i > 3) {
+				GameMemory.setTutorialState (new FinishedTutorial ());
+				GameMemory.save ();
+			}
 			seconds = Time.time;
 			Debug.Log (seconds);
 			// neuer Dialog

@@ -19,28 +19,34 @@ public class GameMemory : MonoBehaviour {
 	}
 
 	public static void save() {
-		Debug.Log (Application.persistentDataPath);
+		Debug.Log ("Save game to: " + Application.persistentDataPath);
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream fs = File.Create (savedGamePath);
 		bf.Serialize (fs, gameState);
 		fs.Close ();
-		gameState.print ();
 	}
 
 	public static void load() {
 		if (File.Exists (savedGamePath)) {
+			Debug.Log ("Load Game From: " + Application.persistentDataPath);
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream fs = File.Open (savedGamePath, FileMode.Open);
 			gameState = (SerializableGameState)bf.Deserialize (fs);
 			fs.Close ();
 			gameState.print ();
 		} else {
-			gameState.roomStates.Add(0, new Room0State());
-			gameState.roomStates.Add(1, new StartedRoom1());
-			gameState.roomStates.Add(2, new StartedRoom2());
-			gameState.roomStates.Add(3, new StartedRoom3());
-			gameState.roomStates.Add(4, new StartedOutro());
+			createNewGame ();
 		}
+	}
+
+	public static void createNewGame() {
+		Debug.Log ("Create new Game at: " + Application.persistentDataPath);
+		gameState.roomStates.Clear ();
+		gameState.roomStates.Add(0, new Room0State());
+		gameState.roomStates.Add(1, new StartedRoom1());
+		gameState.roomStates.Add(2, new StartedRoom2());
+		gameState.roomStates.Add(3, new StartedRoom3());
+		gameState.roomStates.Add(4, new StartedOutro());
 	}
 
 	public static int getCurrentSceneId() {

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class NavigationManager : MonoBehaviour {
 
 	public void goMainScene(){
-		Debug.Log("blabla");
 		GameMemory.getCurrentRoomState().leave ();
 		GameMemory.setCurrentSceneId(0);
 		GameMemory.getCurrentRoomState().arrive ();
@@ -42,5 +41,9 @@ public class NavigationManager : MonoBehaviour {
 
 	public void saveGame() {
 		GameMemory.save ();
+	}
+
+	public void createNewGame() {
+		GameMemory.createNewGame ();
 	}
 }

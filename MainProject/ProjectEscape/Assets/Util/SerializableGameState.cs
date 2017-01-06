@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SerializableGameState {
 	public Dictionary<int, BaseState> roomStates = new Dictionary<int, BaseState> ();
+	public Dictionary<int, int> scores = new Dictionary<int, int> ();
 
 	public void print() {
 		Debug.Log ("Aktuelle States");

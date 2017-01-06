@@ -15,8 +15,8 @@ public class Markermanager : MonoBehaviour {
 	
 	void Update () {
 		if (!executed) {
-			uiIndexText.text = "UI-Index: " + GameMemory.uiIndex;
 			executed = true;
+			uiIndexText.text = "UI-Index: " + GameMemory.getScore();
 			deactivateMarkers ();
 			activatePlayableLevels ();
 			activateCompletedLevels ();

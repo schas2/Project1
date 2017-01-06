@@ -29,6 +29,7 @@ public class CodeScript : MonoBehaviour, InputReceiver {
 			GameMemory.setRoom3State (new FinishedRoom3 ());
 			// Ermögliche, dass das Outro spielbar wird
 			GameMemory.setOutroState (new NotStartedOutro ());
+			GameMemory.addScoreForLevel (3, 90);
 			GameMemory.save ();
 		} else {
 			Debug.Log ("Nope");

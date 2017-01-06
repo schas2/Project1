@@ -8,6 +8,8 @@ public class DoorScript : MonoBehaviour {
 		GameMemory.setRoom2State (new FinishedRoom2 ());
 		// Ermögliche, dass Level 3 spielbar wird
 		GameMemory.setRoom3State (new NotStartedRoom3 ());
+
+		GameMemory.addScoreForLevel (2, 80);
 		GameMemory.save ();
 	} 
 }

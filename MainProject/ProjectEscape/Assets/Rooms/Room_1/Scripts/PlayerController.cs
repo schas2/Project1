@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
 			GameMemory.setRoom1State (new FinishedRoom1 ());
 			// Ermögliche, dass Level 2 spielbar wird
 			GameMemory.setRoom2State (new NotStartedRoom2 ());
+			GameMemory.addScoreForLevel (1, 50);
 			GameMemory.save ();
 
 			gameRunning = false;

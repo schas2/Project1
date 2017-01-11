@@ -87,6 +87,14 @@ public class GameMemory : MonoBehaviour {
 		return (Room3State) gameState.roomStates [3];
 	}
 
+	public static TutorialState getIntroState() {
+		return (TutorialState) gameState.roomStates [5];
+	}
+
+	public static OutroState getOutroState() {
+		return (OutroState) gameState.roomStates [4];
+	}
+
 	public static void setRoom1State(Room1State state) {
 		Debug.Log ("setRoom1State to " + state);
 		gameState.roomStates [1] = state;

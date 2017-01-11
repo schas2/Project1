@@ -36,9 +36,11 @@ public class StoryController : MonoBehaviour {
 				// Schliesse Tutorial ab
 				GameMemory.setTutorialState (new FinishedTutorial ());
 				// Ermögliche, dass Level 1 spielbar wird
-				GameMemory.setRoom1State (new NotStartedRoom1 ());
-				// Setze die Punktzahl
-				GameMemory.addScoreForLevel(0, 100);
+				if (GameMemory.getRoom1State () is NotAllowedRoom1) {
+					GameMemory.setRoom1State (new NotStartedRoom1 ());
+					// Setze die Punktzahl
+					GameMemory.addScoreForLevel (0, 100);
+				}
 				GameMemory.save ();
 
 				skipText = true;

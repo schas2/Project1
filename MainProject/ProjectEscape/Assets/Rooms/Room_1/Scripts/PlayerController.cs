@@ -33,7 +33,11 @@ public class PlayerController : MonoBehaviour
 
 		// Aktualisiere Status (nur, wenn das Level nicht schon abgeschlossen ist)
 		if (!(GameMemory.getRoomState (1) is LevelCompleted)) {
-			GameMemory.setRoom1State (new StartedRoom1 ());
+			StartedRoom1 state = new StartedRoom1 ();
+			if (GameMemory.getRoom1State () is StartedRoom1) {
+				state = (StartedRoom1) GameMemory.getRoom1State ();
+			}
+			GameMemory.setRoom1State (state);
 			GameMemory.save ();
 		}
 	}
@@ -85,17 +89,32 @@ public class PlayerController : MonoBehaviour
 			dialogHolder.SetActive(true);
 			playerNotification.text = "Ja, ich habe es geschafft!";
 
+			int kiIndex = 100;
+			if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 0) {
+				kiIndex = 100;
+			} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 1) {
+				kiIndex = 80;
+			} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 2) {
+				kiIndex = 50;
+			}else if (((StartedRoom1) GameMemory.getRoom1State ()).getTries () > 2) {
+				kiIndex = 10;
+			}
+
 			// Schliesse Level ab
 			GameMemory.setRoom1State (new FinishedRoom1 ());
 			// Ermögliche, dass Level 2 spielbar wird
-			GameMemory.setRoom2State (new NotStartedRoom2 ());
-			GameMemory.addScoreForLevel (1, 50);
+			if (GameMemory.getRoom2State () is NotAllowedRoom2) {
+				GameMemory.setRoom2State (new NotStartedRoom2 ());
+				GameMemory.addScoreForLevel (1, kiIndex);
+			}
 			GameMemory.save ();
 
 			gameRunning = false;
 		} else if (other.gameObject.CompareTag("Detected")) {
 			dialogHolder.SetActive(true);
 			playerNotification.text = "Oh nein, voll erwischt!";
+			((StartedRoom1)GameMemory.getRoom1State ()).addTry ();
+			GameMemory.save ();
 			gameRunning = false;
 		}
 	}

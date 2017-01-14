@@ -10,4 +10,10 @@ public class ConveyorController : MonoBehaviour
 
 		transform.position = new Vector3(transform.position.x, transform.position.y, zPosition + speed);
 	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.name == "Hammer") {
+			Destroy(gameObject);
+		}
+	}
 }

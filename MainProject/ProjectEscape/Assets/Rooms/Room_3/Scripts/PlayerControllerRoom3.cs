@@ -10,12 +10,6 @@ public class PlayerControllerRoom3 : MonoBehaviour {
 	{
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator> ();
-
-		// Aktualisiere Status (nur, wenn das Level nicht schon abgeschlossen ist)
-		if (!(GameMemory.getRoomState (3) is LevelCompleted)) {
-			GameMemory.setRoom3State (new StartedRoom3 ());
-			GameMemory.save ();
-		}
 	}
 
 	void Update()

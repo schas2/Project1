@@ -4,11 +4,18 @@ using System.Collections;
 public class CodeScript : MonoBehaviour, InputReceiver {
 	public GameObject dialogHolder;
 	public GameObject player;
+	public NavigationManager naviManager;
 	private float gameStartTime;
 
 	void Start ()
 	{
 		gameStartTime = Time.time;
+
+		// Aktualisiere Status (nur, wenn das Level nicht schon abgeschlossen ist)
+		if (!(GameMemory.getRoom3State () is LevelCompleted)) {
+			GameMemory.setRoom3State (new StartedRoom3 ());
+			GameMemory.save ();
+		}
 	}
 
 	void OnMouseDown(){
@@ -28,38 +35,42 @@ public class CodeScript : MonoBehaviour, InputReceiver {
 	} 
 
 	public void receivedInput(string input) {
-		Debug.Log (input);
 		if (input == "172") {
-			Debug.Log ("yeah!");
-			float playedMinutes = (Time.time - gameStartTime)/60;
-			int kiPoints;
-			if (playedMinutes < 5.0f) {
-				kiPoints = 100;
-			} else if (playedMinutes < 7.0f) {
-				kiPoints = 90;
-			} else if (playedMinutes < 9.0f) {
-				kiPoints = 80;
-			} else if (playedMinutes < 10.0f) {
-				kiPoints = 70;
-			} else if (playedMinutes < 11.0f) {
-				kiPoints = 60;
-			} else if (playedMinutes < 12.0f) {
-				kiPoints = 50;
-			} else if (playedMinutes < 13.0f) {
-				kiPoints = 40;
+			if (GameMemory.getRoom3State() is StartedRoom3) {
+				float playedMinutes = (Time.time - gameStartTime) / 60;
+				int kiPoints;
+				if (playedMinutes < 5.0f) {
+					kiPoints = 100;
+				} else if (playedMinutes < 7.0f) {
+					kiPoints = 90;
+				} else if (playedMinutes < 9.0f) {
+					kiPoints = 80;
+				} else if (playedMinutes < 10.0f) {
+					kiPoints = 70;
+				} else if (playedMinutes < 11.0f) {
+					kiPoints = 60;
+				} else if (playedMinutes < 12.0f) {
+					kiPoints = 50;
+				} else if (playedMinutes < 13.0f) {
+					kiPoints = 40;
+				} else {
+					kiPoints = 30;
+				}
+				// Schliesse Level 3 ab
+				GameMemory.setRoom3State (new FinishedRoom3 ());
+				// Ermögliche, dass das Outro spielbar wird
+				if (GameMemory.getOutroState () is NotAllowedOutro) {
+					GameMemory.setOutroState (new NotStartedOutro ());
+					GameMemory.addScoreForLevel (3, kiPoints);
+				}
+				dialogHolder.SendMessage ("setTextDelayed", "Es blinkt grün und piepst leise - ein gutes Zeichen!");
+				GameMemory.save ();
 			} else {
-				kiPoints = 30;
+				dialogHolder.SendMessage ("setTextDelayed", "Den habe ich mir gemerkt!");
 			}
-			// Schliesse Level 3 ab
-			GameMemory.setRoom3State (new FinishedRoom3 ());
-			// Ermögliche, dass das Outro spielbar wird
-			if (GameMemory.getOutroState () is NotAllowedOutro) {
-				GameMemory.setOutroState (new NotStartedOutro ());
-				GameMemory.addScoreForLevel (3, kiPoints);
-			}
-			GameMemory.save ();
+			StartCoroutine(naviManager.goMainScene (5));
 		} else {
-			Debug.Log ("Nope");
+			dialogHolder.SendMessage ("setTextDelayed", "Verdammt, falsche Eingabe...");
 		}
 	}
 }

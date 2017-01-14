@@ -46,6 +46,36 @@ public class NavigationManager : MonoBehaviour {
 		SceneManager.LoadScene(5);
 	}
 
+	public IEnumerator goMainScene(int delay){
+		yield return new WaitForSeconds(delay);
+		goMainScene ();
+	}
+
+	public IEnumerator goLevel1(int delay){
+		yield return new WaitForSeconds(delay);
+		goLevel1 ();
+	}
+
+	public IEnumerator goLevel2(int delay){
+		yield return new WaitForSeconds(delay);
+		goLevel2 ();
+	}
+
+	public IEnumerator goLevel3(int delay){
+		yield return new WaitForSeconds(delay);
+		goLevel3 ();
+	}
+
+	public IEnumerator goOutro(int delay){
+		yield return new WaitForSeconds(delay);
+		goOutro ();
+	}
+
+	public IEnumerator goTutorial(int delay){
+		yield return new WaitForSeconds(delay);
+		goTutorial ();
+	}
+
 	public void saveGame() {
 		GameMemory.save ();
 	}

@@ -28,15 +28,11 @@ public class InteractionHelper : MonoBehaviour {
 		StartCoroutine(setText (text));
 	}
 
-	public void showInputDialog(object[] param) {
+	public void showInputDialog(InputReceiver inputReceiver) {
 		if (!alreadyActive) {
 			prepareInputPanel ();
 
-			currentReceiver = (InputReceiver)param [0];
-			string placeholder = (string)param [1];
-			int scaleX = (int)param [2];
-			int scaleY = (int)param [3];
-			// TODO set placeholder+scales
+			currentReceiver = inputReceiver;
 		}
 	}
 
@@ -53,7 +49,6 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void prepareTextPanel() {
 		alreadyActive = true;
-		Debug.Log (alreadyActive);
 		container.SetActive (true);
 		textPanel.SetActive (true);
 		inputPanel.SetActive (false);
@@ -61,7 +56,6 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void exitTextPanel() {
 		alreadyActive = false;
-		Debug.Log (alreadyActive);
 		container.SetActive (false);
 		textPanel.SetActive (false);
 		inputPanel.SetActive (false);
@@ -69,7 +63,6 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void prepareInputPanel() {
 		alreadyActive = true;
-		Debug.Log (alreadyActive);
 		container.SetActive (true);
 		textPanel.SetActive (false);
 		inputPanel.SetActive (true);
@@ -77,7 +70,6 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void exitInputPanel() {
 		alreadyActive = false;
-		Debug.Log (alreadyActive);
 		container.SetActive (false);
 		textPanel.SetActive (false);
 		inputPanel.SetActive (false);

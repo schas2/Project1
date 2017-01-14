@@ -19,7 +19,6 @@ public class PlayerControllerRoom3 : MonoBehaviour {
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 
-		Debug.Log ("canmove: " + canMove);
 		if (canMove) {
 			if (Input.GetButtonDown ("Fire1")) {
 				if (Physics.Raycast (ray, out hit, 100)) {

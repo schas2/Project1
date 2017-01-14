@@ -4,6 +4,14 @@ using System.Collections;
 public class ConveyorController : MonoBehaviour
 {
 	public float speed;
+	public StoryTeller script;
+
+	public Camera cameraBadEnd;
+	public Camera cameraEnd;
+
+	void Awake() {
+		cameraEnd.enabled = false;
+	}
 
 	void Update() {
 		float zPosition = transform.position.z;
@@ -13,6 +21,11 @@ public class ConveyorController : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.name == "Hammer") {
+			if (gameObject.tag == "Kyle" && cameraBadEnd.enabled == true) {
+				cameraBadEnd.enabled = false;
+				cameraEnd.enabled = true;
+				script.endGame();
+			}
 			Destroy(gameObject);
 		}
 	}

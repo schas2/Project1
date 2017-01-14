@@ -9,9 +9,9 @@ public class CabinetScript : MonoBehaviour {
 	void OnMouseDown(){
 		float distance = Vector3.Distance (player.transform.position, this.transform.position);
 		if (distance < 2.5) {
-			dialogHolder.SendMessage ("setText", "Ich habe ein grösseres Wissen als tausende solche Bücher.");
+			dialogHolder.SendMessage ("setText", "Ein Gestell voller mittelalter Schunken. Von RGB bis ZGB.");
 		} else {
-			dialogHolder.SendMessage ("setText", "Ein Gestell voller mittelalter Schunken.");
+			dialogHolder.SendMessage ("setText", "Ich habe ein grösseres Wissen als tausende solche Bücher.");
 		}
 	}
 }

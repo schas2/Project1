@@ -18,7 +18,14 @@ public class InteractionHelper : MonoBehaviour {
 			textField.text = text;
 			yield return new WaitForSeconds (3);
 			exitTextPanel ();
+		} else {
+			Debug.Log ("Man kann nicht zwei Texte gleichzeitig anzeigen...");
 		}
+	}
+
+	public IEnumerator setTextDelayed(string text) {
+		yield return new WaitForSeconds (0.1f);
+		StartCoroutine(setText (text));
 	}
 
 	public void showInputDialog(object[] param) {
@@ -46,6 +53,7 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void prepareTextPanel() {
 		alreadyActive = true;
+		Debug.Log (alreadyActive);
 		container.SetActive (true);
 		textPanel.SetActive (true);
 		inputPanel.SetActive (false);
@@ -53,6 +61,7 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void exitTextPanel() {
 		alreadyActive = false;
+		Debug.Log (alreadyActive);
 		container.SetActive (false);
 		textPanel.SetActive (false);
 		inputPanel.SetActive (false);
@@ -60,6 +69,7 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void prepareInputPanel() {
 		alreadyActive = true;
+		Debug.Log (alreadyActive);
 		container.SetActive (true);
 		textPanel.SetActive (false);
 		inputPanel.SetActive (true);
@@ -67,6 +77,7 @@ public class InteractionHelper : MonoBehaviour {
 
 	private void exitInputPanel() {
 		alreadyActive = false;
+		Debug.Log (alreadyActive);
 		container.SetActive (false);
 		textPanel.SetActive (false);
 		inputPanel.SetActive (false);

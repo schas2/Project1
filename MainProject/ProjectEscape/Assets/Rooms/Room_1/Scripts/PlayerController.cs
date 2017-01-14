@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
 	public Text playerNotification;
 	public GameObject dialogHolder;
+	public NavigationManager naviManager;
 
 	public Camera mainCamera;
 	public Camera room1Camera;
@@ -89,33 +90,39 @@ public class PlayerController : MonoBehaviour
 			dialogHolder.SetActive(true);
 			playerNotification.text = "Ja, ich habe es geschafft!";
 
-			int kiIndex = 100;
-			if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 0) {
-				kiIndex = 100;
-			} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 1) {
-				kiIndex = 80;
-			} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 2) {
-				kiIndex = 50;
-			}else if (((StartedRoom1) GameMemory.getRoom1State ()).getTries () > 2) {
-				kiIndex = 10;
-			}
+			if (GameMemory.getRoom1State () is StartedRoom1) {
+				int kiIndex = 100;
+				if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 0) {
+					kiIndex = 100;
+				} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 1) {
+					kiIndex = 80;
+				} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () == 2) {
+					kiIndex = 50;
+				} else if (((StartedRoom1)GameMemory.getRoom1State ()).getTries () > 2) {
+					kiIndex = 10;
+				}
 
-			// Schliesse Level ab
-			GameMemory.setRoom1State (new FinishedRoom1 ());
-			// Ermögliche, dass Level 2 spielbar wird
-			if (GameMemory.getRoom2State () is NotAllowedRoom2) {
-				GameMemory.setRoom2State (new NotStartedRoom2 ());
-				GameMemory.addScoreForLevel (1, kiIndex);
+				// Schliesse Level ab
+				GameMemory.setRoom1State (new FinishedRoom1 ());
+				// Ermögliche, dass Level 2 spielbar wird
+				if (GameMemory.getRoom2State () is NotAllowedRoom2) {
+					GameMemory.setRoom2State (new NotStartedRoom2 ());
+					GameMemory.addScoreForLevel (1, kiIndex);
+				}
+				GameMemory.save ();
 			}
-			GameMemory.save ();
+			StartCoroutine(naviManager.goMainScene (5));
 
 			gameRunning = false;
 		} else if (other.gameObject.CompareTag("Detected")) {
 			dialogHolder.SetActive(true);
 			playerNotification.text = "Oh nein, voll erwischt!";
-			((StartedRoom1)GameMemory.getRoom1State ()).addTry ();
-			GameMemory.save ();
+			if (GameMemory.getRoom1State () is StartedRoom1) {
+				((StartedRoom1)GameMemory.getRoom1State ()).addTry ();
+				GameMemory.save ();
+			}
 			gameRunning = false;
+			StartCoroutine(naviManager.goLevel1 (5));
 		}
 	}
 

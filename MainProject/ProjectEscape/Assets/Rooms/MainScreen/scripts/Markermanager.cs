@@ -76,4 +76,8 @@ public class Markermanager : MonoBehaviour {
 			markerTutorial.GetComponent<Image> ().sprite = completedLevelSprite;
 		}
 	}
+
+	public void resetAfterNewGame() {
+		executed = false;
+	}
 }

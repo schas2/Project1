@@ -59,15 +59,15 @@ public class PlayerController : MonoBehaviour
 				if (room1Camera.enabled) {
 					DeactivateCameras();
 					room2Camera.enabled = true;
-					playerNotification.text = "SecCam Room 102.\nPress ESC to return.";
+					playerNotification.text = "SecCam Room 102.\nClick mouse button to switch camera.\nPress ESC to return.";
 				} else if (room2Camera.enabled) {
 					DeactivateCameras();
 					room3Camera.enabled = true;
-					playerNotification.text = "SecCam Room 103.\nPress ESC to return.";
+					playerNotification.text = "SecCam Room 103.\nClick mouse button to switch camera.\nPress ESC to return.";
 				} else if (room3Camera.enabled) {
 					DeactivateCameras();
 					room1Camera.enabled = true;
-					playerNotification.text = "SecCam Room 101.\nPress ESC to return.";
+					playerNotification.text = "SecCam Room 101.\nClick mouse button to switch camera.\nPress ESC to return.";
 				}
 			} else if (Input.GetKeyDown(KeyCode.Escape)) {
 				DeactivateCameras();
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
 					dialogHolder.SetActive(true);
 					DeactivateCameras();
 					room1Camera.enabled = true;
-					playerNotification.text = "SecCam Room 101.\nPress ESC to return.";
+					playerNotification.text = "SecCam Room 101.\nClick mouse button to switch camera.\nPress ESC to return.";
 				} else {
 					animator.SetBool("walking", true);
 					buffer = 0;

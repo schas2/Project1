@@ -24,7 +24,7 @@ public class StoryTeller : MonoBehaviour
 			cameraGoodEnd.enabled = true;
 			cameraBadEnd.enabled = false;
 			ui.SetActive(true);
-			playerNotification.text = "Wissenschaftler Herbert: Zwei Ferienwochen extra!!!\nDanke du bist super.";
+			playerNotification.text = "Wissenschaftler Herbert: Zwei Ferienwochen extra!!!\nDanke, du bist super!";
 		}
 
 		if (!(GameMemory.getOutroState() is LevelCompleted)) {

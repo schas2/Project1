@@ -16,7 +16,7 @@ public class StoryTeller : MonoBehaviour
 
 	void Awake() {
 		int score = GameMemory.getScore();
-		if (score < 70) {
+		if (score < 80) {
 			cameraGoodEnd.enabled = false;
 			cameraBadEnd.enabled = true;
 			ui.SetActive(false);
